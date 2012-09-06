@@ -1,30 +1,27 @@
+//sum of even numbers in the Fibonacci sequence under 4000000
+
 #include <iostream>
-#include <string>
+
 using namespace std;
 
-int fib(int);
+//fibonacci sequence code(int fib) by Jonathan Landrum
 
-int fib(int in) {
-	int out;
-	if(in == 0 || in == 1)
-		out = in;
+int fib(int num) {
+	int result;
+	if(num == 0 || num == 1)
+		result = num;
 	else
-		out = (fib(in-2) + fib(in-1));
-	return out;
+		result = (fib(num-2) + fib(num-1));
+	return result;
 }
 
 int main() {
-	int c = 0;
-	int number;
 	int sum = 0;
-
-	while (true) {
-		number = fib(c);
-		if (number >= 4000000)
-			break;
-		if(number % 2 == 0)
-			sum += number;
-		c++;
+	int i=0;
+	while (fib(i) < 4000000) {
+		if(fib(i) % 2 == 0)
+			sum = sum + fib(i);
+		i++;
 	}
 
 	cout << sum << endl;
